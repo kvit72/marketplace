@@ -1,11 +1,10 @@
 package com.example.marketplace.models;
 
 import com.example.marketplace.models.enums.Role;
-import javax.persistence.*;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
+import org.springframework.web.bind.annotation.GetMapping;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.*;
@@ -47,6 +46,10 @@ public class User implements UserDetails {
     }
 
     // security
+
+    public boolean isAdmin() {
+        return roles.contains(Role.ROLE_ADMIN);
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

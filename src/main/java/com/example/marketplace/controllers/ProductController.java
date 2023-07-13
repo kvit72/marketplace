@@ -32,7 +32,6 @@ public class ProductController {
         model.addAttribute("product", product);
         model.addAttribute("images", product.getImages());
         return "product-info";
-
     }
 
     @PostMapping("/product/create")
